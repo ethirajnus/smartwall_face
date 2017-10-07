@@ -83,5 +83,17 @@ def recognize():
         return "Hello"
 
 
+@app.route("/add_primary_picture",methods=['POST'])
+def add_primary_picture():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return redirect(request.url)
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            name = request.form.get("name")
+            filename = name+".jpg"
+            file.save("app_pictures/" + filename)
+            return "success"
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port= 5000)
