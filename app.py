@@ -19,7 +19,7 @@ POSTGRES = {
 }
 import face_recognition
 UPLOAD_FOLDER = '../pictures'
-ALLOWED_EXTENSIONS = set(['jpg'])
+ALLOWED_EXTENSIONS = set(['jpg','jpeg'])
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DEBUG'] = True
